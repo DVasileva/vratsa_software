@@ -7,4 +7,9 @@ if (!isset($_POST['code'])) {
 	$remove = preg_replace('/[\[(\s+)\]]/', '', $repl);
 
 	$new = explode(',', $remove);
+	$new_arr = [];
+		foreach ($new as $key => $value) {
+			$new = str_split($value, 2);
+			
+		}
 }
