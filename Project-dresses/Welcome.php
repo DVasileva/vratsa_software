@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="widht=device-widht, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
 	<title>The green dress</title>
 </head>
 <body>
