@@ -13,8 +13,6 @@
 		
 		<input type="text" name="code">
 		<input type="submit" name = "submit"  value="Check">
-
-
 	</form>
 </body>
 </html>
