@@ -6,5 +6,5 @@ if (!isset($_POST['code'])) {
 	$repl = str_replace('"', "", $_POST['code']);
 	$remove = preg_replace('/[\[(\s+)\]]/', '', $repl);
 
-	$new = explode('', $remove);
+	$new = explode(',', $remove);
 }
