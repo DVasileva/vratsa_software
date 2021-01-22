@@ -4,9 +4,11 @@ body {
 h2 {
 	text-align: center; color: #36AE93
 }
-p {
+p,input  {
 	color: #36AE93
 }
-input {
-	color : #36AE93
+
+$result {
+	color: #36AE93 ;
+
 }
