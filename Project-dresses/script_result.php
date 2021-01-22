@@ -1,12 +1,13 @@
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+<p>These are the dresses with dominant green color : </p>
 <?php
 
 if (!isset($_POST['code'])) {
 	echo $_POST['code'];
 }else{
 	$repl = str_replace('"', "", $_POST['code']);
-	var_dump($repl);
 	$remove = preg_replace('/[\[(\s+)\]]/', '', $repl);
-	var_dump($remove);
+	//var_dump($remove);
 
 	$new = explode(',', $remove);
 	$new_arr = [];
@@ -20,9 +21,12 @@ if (!isset($_POST['code'])) {
 			$hdec[$i] = [];
 			for ($i=0; $i < 3; $i++) { 
 				foreach ($new_arr as $value) {
+					$val = hexdec($new_arr[$i][$j])
+					$new_arr[$i][$j]= $val;
 					
 				}
 			}
 		}
 
 }
+?>
