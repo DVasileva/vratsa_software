@@ -10,6 +10,7 @@ if (!isset($_POST['code'])) {
 	$new_arr = [];
 		foreach ($new as $key => $value) {
 			$new = str_split($value, 2);
-			
+			$new_arr[] = $new;
 		}
+
 }
