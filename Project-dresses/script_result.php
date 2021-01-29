@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-<p>These are the dresses with dominant green color : </p>
+<h3>These are the dresses with dominant green color : </h3>
 <?php
 
 if (!isset($_POST['code'])) {
