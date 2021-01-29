@@ -21,8 +21,8 @@ if (!isset($_POST['code'])) {
 		$dec[$i] = [];
 		for ($j=0; $j < 3; $j++) { 
 			foreach ($new_arr as $value) {
-				$val = hexdec($new_arr[$i][$j]);
-				$dec[$i][$j] = $val;
+				$hd = hexdec($new_arr[$i][$j]);
+				$dec[$i][$j] = $hd;
 				
 			}
 		}
