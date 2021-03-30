@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Време на генериране: 30 март 2021 в 13:26
+-- Време на генериране: 30 март 2021 в 13:57
 -- Версия на сървъра: 10.4.16-MariaDB
 -- Версия на PHP: 7.4.12
 
@@ -34,6 +34,7 @@ CREATE TABLE `audio_files` (
   `downloads` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
   `date_created` date NOT NULL,
+  `date_deleted` date DEFAULT NULL,
   `category_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -42,12 +43,12 @@ CREATE TABLE `audio_files` (
 -- Схема на данните от таблица `audio_files`
 --
 
-INSERT INTO `audio_files` (`audio_file_id`, `song_name`, `performer`, `downloads`, `rating`, `date_created`, `category_id`, `user_id`) VALUES
-(1, 'You keep on moving', 'Deep Purple', 50, 5, '2021-03-30', 1, 2),
-(2, 'You don\'t fool me', 'Queen', 23, 4, '2021-03-30', 1, 1),
-(3, 'Child in time', 'Deep Purple', 70, 5, '2021-03-30', 1, 3),
-(4, 'Superman', 'Eminem', 100, 4, '2021-03-30', 2, 1),
-(5, 'Yeah', 'Usher', 65, 3, '2021-03-18', 2, 4);
+INSERT INTO `audio_files` (`audio_file_id`, `song_name`, `performer`, `downloads`, `rating`, `date_created`, `date_deleted`, `category_id`, `user_id`) VALUES
+(1, 'You keep on moving', 'Deep Purple', 50, 5, '2021-03-30', NULL, 1, 2),
+(2, 'You don\'t fool me', 'Queen', 23, 4, '2021-03-30', NULL, 1, 1),
+(3, 'Child in time', 'Deep Purple', 70, 5, '2021-03-30', NULL, 1, 3),
+(4, 'Superman', 'Eminem', 100, 4, '2021-03-30', NULL, 2, 1),
+(5, 'Yeah', 'Usher', 65, 3, '2021-03-18', NULL, 2, 4);
 
 -- --------------------------------------------------------
 
