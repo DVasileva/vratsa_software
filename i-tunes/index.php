@@ -1,12 +1,15 @@
-<?php 
-include 'includes/header.php';
-
+<?php
+include ('includes/header.php');
 ?>
-<div class="row">
-	<div class="col-lg-12">
-		<h1> Welcome to i-tunes</h1>
-	</div>
+<h1>Welcome to i-Tunes</h1>
+<div>
+	
+
+
 </div>
-<?php 
-include 'includes/footer.php'
+
+
+
+<?php
+include ('includes/footer.php');
 ?>
