@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include ('db_connection.php'); ?>
+<?php
+date_default_timezone_set ( 'Europe/Sofia');
+ include ('db_connection.php'); ?>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -99,7 +99,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 	<h1>Songs list</h1>
 	<table  class="table table-sm table-dark">
 		<tr>
-			<td>#</td>
+			<td>№</td>
 			<td>Song Name</td>
 			<td>Performer</td>
 			<td>Created at</td>
