@@ -2,7 +2,7 @@
 include('includes/header.php');
 ?>
 <h1>Add new song</h1>
-	<form action="" method="post">
+	<form action="" method="post" enctype="multipart/form-data">
 		<div class="form-grop">
 			<label>Song name</label>
 			<input class="form-control" type="text" name="song_name">
@@ -33,7 +33,10 @@ include('includes/header.php');
 				</select>
 	</div>
 
-
+	<div class="form-group">
+		<label for="audio_file">Upload file</label>
+		<input type="file" id="audio_file" name="audio_file" value="">
+	</div>
 
 		<button class="btn btn-success">Save</button>
 	</form>
@@ -43,8 +46,10 @@ if( isset( $_POST['song_name'] ) ){
 
 	$song_name = $_POST['song_name'];
 	$performer = $_POST['performer'];
+	$category = $_POST['category_name'];
 
-	$insert_query = "INSERT INTO `audio_files`(`song_name`, `performer`) VALUES ('$song_name',$performer,)";
+	$insert_query = "INSERT INTO `audio_files`(`song_name`, `performer`, `category_id`) VALUES ('$song_name',
+	'$performer', '$category')";
 
 	$result = mysqli_query( $connection, $insert_query );
 

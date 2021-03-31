@@ -97,7 +97,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 	?>
 
 	<h1>Songs list</h1>
-	<table style="margin-left: 50px" class="table table-striped">
+	<table  class="table table-sm table-dark">
 		<tr>
 			<td>#</td>
 			<td>Song Name</td>
@@ -107,6 +107,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 			<td>Downloads</td>
 			<td>Rating</td>
 			<td>Category</td>
+
 		</tr>
 	<?php
 		$num = 1;
