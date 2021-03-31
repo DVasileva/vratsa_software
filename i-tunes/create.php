@@ -34,10 +34,6 @@ include('includes/header.php');
 	</div>
 
 
-		<div class="form-grop">
-			<label>Rating 1-5</label>
-			<input class="form-control" type="text" name="rating">
-		</div>
 
 		<button class="btn btn-success">Save</button>
 	</form>
@@ -47,9 +43,8 @@ if( isset( $_POST['song_name'] ) ){
 
 	$song_name = $_POST['song_name'];
 	$performer = $_POST['performer'];
-	$rating = $_POST['rating'];
 
-	$insert_query = "INSERT INTO `audio_files`(`song_name`, `performer`, `rating`) VALUES ('$song_name',$performer,$rating)";
+	$insert_query = "INSERT INTO `audio_files`(`song_name`, `performer`) VALUES ('$song_name',$performer,)";
 
 	$result = mysqli_query( $connection, $insert_query );
 
