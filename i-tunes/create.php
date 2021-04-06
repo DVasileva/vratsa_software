@@ -7,16 +7,16 @@ include('includes/header.php');
 		<div class="row">
 			<div class="col-md-10">
 				<form action="" method="post" enctype="multipart/form-data">
-					<div class="form-grop">
+					<div class="form-group">
 						<label>Song name</label>
 						<input class="form-control" type="text" name="song_name">
 					</div>
 
-					<div class="form-grop">
+					<div class="form-group">
 						<label>Performer</label>
 						<input class="form-control" type="text" name="performer">
 					</div>
-					<div class="form-grop">
+					<div class="form-group">
 						<?php 
 						$category_query = "SELECT * FROM `categories` WHERE `date_deleted` IS NULL";
 						$categories =  mysqli_query( $connection, $category_query );
@@ -43,6 +43,7 @@ include('includes/header.php');
 				</div>
 
 				<button class="btn btn-dark">Save</button>
+				<a href="page_songs.php" class="btn btn-secondary btn-sm btn-dark" role="button">Go back!</a>
 			</form>
 		</div>
 	</div>
@@ -61,7 +62,7 @@ include('includes/header.php');
 
 
 		if( $result ){
-			echo "Record created successfuly";
+			echo "Record created successfuly!";
 		} else {
 			die('Query failed!' . mysqli_error( $connection ));
 		}
