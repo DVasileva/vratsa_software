@@ -1,6 +1,5 @@
 <?php
 include ('includes/header.php');
-
 ?>
 
 <div>
@@ -79,9 +78,9 @@ else{
 	$result_query = mysqli_query($connection, $insert_query);
 		if($result_query){
 			echo "You are now logged in!";
-			header("Location: page_songs.php");
 
 		}
+
 		else {
 			die('Insert qurey failed! Error: '.mysqli_error($connection));
 		}

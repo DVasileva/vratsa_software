@@ -56,22 +56,23 @@ if($error > 0){
 
 	else{
 
-		$get_query = "SELECT user_name from `users` WHERE user_name = '$username' AND password = '$password'";
+		$get_query = "SELECT password from `users` WHERE user_name = '$username' ";
 		$result = mysqli_query($connection, $get_query);
+		$row = mysqli_fetch_assoc($result);
+		$db_pass = $row['password'];
 		
-if($result){
-	$num_records = mysqli_num_rows($result);
-		if ($num_records > 0 ) {
-			echo "Logged";
-			$_SESSION['logged_user'] = $username;
+	if ($result) {
+		if (password_verify($password, $db_pass )) {
+				echo "Logged";
+				$_SESSION['logged_user'] = $username;
 			header('Location: page_songs.php');
-		}
+			}
+			
 
 			else{
 				echo "Please check username/password!";
 			}
-
-		}
+} 
 		else {
 			die('Insert qurey failed! Error: '.mysqli_error($connection));
 		}

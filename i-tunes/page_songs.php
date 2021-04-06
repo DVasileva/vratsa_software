@@ -14,7 +14,7 @@ $result_query = mysqli_query( $connection, $read_query );
 if( mysqli_num_rows( $result_query ) > 0 ){
 
 	?>
-	<h2>Hello <?= $user_name ?> !</h2>
+	<h2>Hello, <?= $user_name ?> !</h2>
 	 <p><a href="create.php" class="btn btn-secondary btn-sm btn-dark" role="button">Add new song!</a></p>
 	  <p><a href="categories/create.php" class="btn btn-secondary btn-sm btn-dark" role="button">Add new category!</a></p>
 	  <h3>Songs list</h3>
