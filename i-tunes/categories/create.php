@@ -3,36 +3,30 @@ include ('../includes/header.php');
 ?>
 <form method="post" action="">
 	<div class="form-group">
-		<label>Your new category</label>
-		<input class="form-control" type="text" name="category_name">
+		<label for="category_name">Enter your new category </label>
+		<input type="text" name="category_name" id="category_name" class="form-control">
 	</div>
+	<button type="submit" class="btn btn-dark">Save</button>
 </form>
-	<button  class="btn btn-dark" type="submit">Save</button>
+<?php 
 
+//1 
 
+if( isset($_POST['category_name'])){
+	$category_name = $_POST['category_name'];
 
-	<?php 
-		if( isset( $_POST['category_name'] ) ){
+	$insert_query = "INSERT INTO `categories`(`category_name`) VALUES ('$category_name')";
 
-			$category_name = $_POST['category_name'];
-		    $category_id = $_POST['category_id'];
+	$result = mysqli_query($connection, $insert_query);
 
-		$insert_query = "INSERT INTO `categories`(`category_id`,`category_name`) VALUES 
-		('$category_id','$category_name')";
-
-		$result = mysqli_query( $connection, $insert_query );
-
-
-		if( $result ){
-			echo "Record created successfuly!";
-			header('Location: create.php');
-		} else {
-			die('Query failed!' . mysqli_error( $connection ));
-		}
-
-
-
+	if($result){
+		echo "Record created successfuly";
+	} else {
+		die('Query failed!' . mysqli_error($connection));
 	}
+
+
+}
 
 
 
