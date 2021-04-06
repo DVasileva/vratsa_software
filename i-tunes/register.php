@@ -62,14 +62,11 @@ else{
 	$result = mysqli_query($connection, $user_check_query);
 	$user = mysqli_fetch_assoc($result);
 
-	if ($user['user_name']== $username) {
-	echo "Username already exists";
+	if ($user !== null && ['user_name']!== $username) {
+	echo "Username already exists!";
 	$error++;
 	}
-		else {
-		$error++;
-	}
-
+	
 if($error > 0){
 		echo "<p>Error/s found! Please check input data!</p>";
 	}
@@ -78,11 +75,11 @@ else{
 
 	$hashed_password = password_hash($password, PASSWORD_DEFAULT );
 
-	$insert_query = "INSERT INTO users (user_name, password) VALUES ('$username', '$hashed_password')";
+	$insert_query = "INSERT INTO `users` (`user_name`, `password`) VALUES ('$username', '$hashed_password')";
 	$result_query = mysqli_query($connection, $insert_query);
 		if($result_query){
 			echo "You are now logged in!";
-			header("Location: index.php");
+			header("Location: page_songs.php");
 
 		}
 		else {
