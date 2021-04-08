@@ -1,6 +1,18 @@
 <?php
 include ('includes/header.php');
 
+$result_per_page = 6;
+if (isset($_GET['page'])){
+	$page = $_GET['page'];
+}
+else{
+	$page = 1;
+}
+$get_total_rec_query = " SELECT COUNT(audio_file_id)  FROM audio_files WHERE date_deleted IS NULL";
+$result = mysqli_query($connection, $get_total_rec_query);
+$total_rows = mysqli_fetch_array($result);
+$total_rows = $total_rows[0];
+$offset = ($page - 1)*$result_per_page;
 
 
 ?>
@@ -15,9 +27,13 @@ include ('includes/header.php');
 
 
 <?php
-$read_query = "SELECT a.`audio_file_id`, a.`song_name`, a.  `performer`, a.`date_created`, u.`user_name`, a.`downloads`, a.`rating`, c.`category_name`  FROM `audio_files` a LEFT JOIN `users` u ON a.`user_id` = u.`user_id` LEFT JOIN `categories` c ON a. `category_id` = c.`category_id` WHERE a.`date_deleted` IS NULL";
+$read_query = "SELECT a.`audio_file_id`, a.`song_name`, a.  `performer`, a.`date_created`, u.`user_name`, a.`downloads`, a.`rating`, c.`category_name`  FROM `audio_files` a LEFT JOIN `users` u ON a.`user_id` = u.`user_id` LEFT JOIN `categories` c ON a. `category_id` = c.`category_id` WHERE a.`date_deleted` IS NULL ORDER BY a.`song_name` ASC LIMIT $result_per_page OFFSET $offset";
 
 $result_query = mysqli_query( $connection, $read_query ); 
+
+$max_pages = ceil($total_rows/$result_per_page);
+
+
 
 if( mysqli_num_rows( $result_query ) > 0 ){
 
@@ -54,6 +70,15 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 		}
 		?>
 	</table>
+<p>
+		<a class="btn btn-sm btn-primary  <?= ($page == 1) ? 'disabled' : '' ?>"href="index.php?page=<?= ($page > 1 ) ? $page-1 : $page ?>">Previous</a>
+		<?php
+		for ($i=1; $i <= $max_pages ; $i++) { 
+			echo "<a href='index.php?page=$i'>$i</a>";
+		}
+		?>
+		<a class="btn btn-sm btn-primary  <?= ($page >= $max_pages) ? 'disabled' : '' ?>"href="index.php?page=<?= ($page < $max_pages) ? $page+1 : $page ?>">Next</a>
+</p> 
 
 	<?php
 
