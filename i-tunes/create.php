@@ -49,7 +49,7 @@ include('includes/header.php');
 	</div>
 	<?php 
 	$current_date = date('Y-m-d H:i:s');
-		if( isset( $_POST['song_name'] ) ){
+		if( isset( $_POST['song_name'] )  ){
 
 			$song_name = $_POST['song_name'];
 			$performer = $_POST['performer'];
