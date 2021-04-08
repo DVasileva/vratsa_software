@@ -16,11 +16,11 @@ $offset = ($page - 1)*$result_per_page;
 
 
 ?>
-<h1>Welcome to i-Tunes!</h1>
+<h1 class="font-italic">Welcome to i-Tunes!</h1>
 
 	<span>
-		<p> Please, <a href="register.php" class="btn btn-secondary btn-sm btn-dark" role="button">Sign up!</a></p>
-		<p>Already a member? <a href="log_in.php" class="btn btn-secondary btn-sm btn-dark" role="button">Sign in!</a></p>
+		<p class="font-weight-light"> Please, <a href="register.php" class="btn btn-secondary btn-sm btn-dark" role="button">Sign up!</a></p>
+		<p class="font-weight-light">Already a member? <a href="log_in.php" class="btn btn-secondary btn-sm btn-dark" role="button">Sign in!</a></p>
 	</span>
 
 
@@ -39,7 +39,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 
 	?>
 
-	<h1>Songs list</h1>
+	<h1 class="font-italic text-center" >Songs list</h1>
 	<table  class="table table-sm table-dark">
 		<tr>
 			<td>№</td>
@@ -70,14 +70,14 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 		}
 		?>
 	</table>
-<p>
-		<a class="btn btn-sm btn-primary  <?= ($page == 1) ? 'disabled' : '' ?>"href="index.php?page=<?= ($page > 1 ) ? $page-1 : $page ?>">Previous</a>
+<p class="text-center">
+		<a class="btn btn-sm btn-dark   <?= ($page == 1) ? 'disabled' : '' ?>"href="index.php?page=<?= ($page > 1 ) ? $page-1 : $page ?>">Previous</a>
 		<?php
 		for ($i=1; $i <= $max_pages ; $i++) { 
 			echo "<a href='index.php?page=$i'>$i</a>";
 		}
 		?>
-		<a class="btn btn-sm btn-primary  <?= ($page >= $max_pages) ? 'disabled' : '' ?>"href="index.php?page=<?= ($page < $max_pages) ? $page+1 : $page ?>">Next</a>
+		<a class="btn btn-sm btn-dark   <?= ($page >= $max_pages) ? 'disabled' : '' ?>"href="index.php?page=<?= ($page < $max_pages) ? $page+1 : $page ?>">Next</a>
 </p> 
 
 	<?php

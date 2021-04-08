@@ -19,7 +19,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 	<h2>Welcome back, <?= $user_name ?> !</h2>
 	 <p><a href="create.php" class="btn btn-secondary btn-sm btn-dark" role="button">Add new song!</a></p>
 	  <p><a href="categories/create.php" class="btn btn-secondary btn-sm btn-dark" role="button">Add new category!</a></p>
-	  <h3>Songs list</h3>
+	  <h3 class="text-center">Songs list</h3>
 	<table  class="table table-sm table-dark">
 		<tr>
 			<td>№</td>
