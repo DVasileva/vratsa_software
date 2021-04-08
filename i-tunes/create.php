@@ -43,7 +43,6 @@ include('includes/header.php');
 				</div>
 
 				<button class="btn btn-dark">Save</button>
-				<a href="page_songs.php" class="btn btn-secondary btn-sm btn-dark" role="button">Go back!</a>
 			</form>
 		</div>
 	</div>
@@ -68,21 +67,16 @@ include('includes/header.php');
 
 			}
 		}
-		$insert_query = "INSERT INTO `audio_files`(`song_name`, `performer`, `date_created`, `category_id`, `audio_file`) VALUES (
+		$insert_query = "INSERT INTO `audio_files`(`song_name`, `performer`, `date_created`, `category_id`,
+		 `audio_file`) VALUES (
 		'$song_name','$performer','$current_date', '$category_id', '$upload_file')";
 
 		$result = mysqli_query( $connection, $insert_query );
 
-
-		if( $result ){
-			echo "Record created successfuly!";
-		} else {
-			die('Query failed!' . mysqli_error( $connection ));
-		}
+		} 
 
 
-
-	}
+	
 	?>
 </div>
 </div>

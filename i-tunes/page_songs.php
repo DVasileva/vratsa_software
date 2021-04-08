@@ -16,7 +16,7 @@ $result_query = mysqli_query( $connection, $read_query );
 if( mysqli_num_rows( $result_query ) > 0 ){
 
 	?>
-	<h2>Hello, <?= $user_name ?> !</h2>
+	<h2>Welcome back, <?= $user_name ?> !</h2>
 	 <p><a href="create.php" class="btn btn-secondary btn-sm btn-dark" role="button">Add new song!</a></p>
 	  <p><a href="categories/create.php" class="btn btn-secondary btn-sm btn-dark" role="button">Add new category!</a></p>
 	  <h3>Songs list</h3>
@@ -44,7 +44,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 				<td><?= $row['date_created']?></td>	
 				<td><?= $row['user_name']?></td>
 				<td><?= $row['downloads']?></td>
-				<td><a href="dowload.php?id=<?= $row['audio_file_id']?>"class= "btn btn-warning">Dowload</td>	
+				<td><a href="download.php?id=<?= $row['audio_file_id']?>"class= "btn btn-outline-success ">Dowload</td>	
 				<td><?= $row['rating']?></td>	
 				<td><?= $row['category_name']?></td>		
 			</tr>
