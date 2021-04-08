@@ -1,5 +1,7 @@
 <?php
 include ('includes/header.php');
+
+session_start();
 ?>
 
 <div>
@@ -78,6 +80,8 @@ else{
 	$result_query = mysqli_query($connection, $insert_query);
 		if($result_query){
 			echo "You are now logged in!";
+			$_SESSION['reg_user'] = $username;
+			header('Location: page_song.php');
 
 		}
 
