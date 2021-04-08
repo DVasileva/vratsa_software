@@ -27,6 +27,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 			<td>Created at</td>
 			<td>User</td>
 			<td>Downloads</td>
+			<td>Dowload song</td>
 			<td>Rating</td>
 			<td>Category</td>
 
@@ -41,7 +42,8 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 				<td><?= $row['performer']?></td>	
 				<td><?= $row['date_created']?></td>	
 				<td><?= $row['user_name']?></td>
-				<td><?= $row['downloads']?></td>	
+				<td><?= $row['downloads']?></td>
+				<td><a href="dowload.php?id=<?= $row['audio_file_id']?>"class= "btn btn-warning">Dowload</td>	
 				<td><?= $row['rating']?></td>	
 				<td><?= $row['category_name']?></td>		
 			</tr>
