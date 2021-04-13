@@ -3,8 +3,7 @@ include ('includes/db_connection.php');
 
 $audio_file_id = $_GET['id'];
 
-$read_query ="SELECT `audio_file` FROM `audio_files` WHERE `audio_file_id`=" . $audio_file_id . "LIMIT 1"; 
-//var_dump($read_query);
+$read_query ="SELECT `audio_file` FROM `audio_files` WHERE `audio_file_id`=" . $audio_file_id . " LIMIT 1"; 
 
 $result = mysqli_query($connection, $read_query);
 

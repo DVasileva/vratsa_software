@@ -18,10 +18,10 @@ $offset = ($page - 1)*$result_per_page;
 ?>
 <h1 class="font-italic">Welcome to i-Tunes!</h1>
 
-	<span>
-		<p class="font-weight-light"> Please, <a href="register.php" class="btn btn-secondary btn-sm btn-dark" role="button">Sign up!</a></p>
-		<p class="font-weight-light">Already a member? <a href="log_in.php" class="btn btn-secondary btn-sm btn-dark" role="button">Sign in!</a></p>
-	</span>
+<span>
+	<p class="font-weight-light"> Please, <a href="register.php" class="btn btn-secondary btn-sm btn-dark" role="button">Sign up!</a></p>
+	<p class="font-weight-light">Already a member? <a href="log_in.php" class="btn btn-secondary btn-sm btn-dark" role="button">Sign in!</a></p>
+</span>
 
 
 
@@ -52,12 +52,12 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 			<td>Category</td>
 
 		</tr>
-	<?php
+		<?php
 		$num = 1;
 		while( $row = mysqli_fetch_assoc( $result_query) ){
 			?>
 			<tr>
-				<td><?= $num ++ ?></td>
+				<td><?php echo (($page - 1) * $result_per_page + $num); $num++  ?></td>
 				<td><?= $row['song_name']?></td>	
 				<td><?= $row['performer']?></td>	
 				<td><?= $row['date_created']?></td>	
@@ -70,7 +70,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 		}
 		?>
 	</table>
-<p class="text-center">
+	<p class="text-center">
 		<a class="btn btn-sm btn-dark   <?= ($page == 1) ? 'disabled' : '' ?>"href="index.php?page=<?= ($page > 1 ) ? $page-1 : $page ?>">Previous</a>
 		<?php
 		for ($i=1; $i <= $max_pages ; $i++) { 
@@ -78,7 +78,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 		}
 		?>
 		<a class="btn btn-sm btn-dark   <?= ($page >= $max_pages) ? 'disabled' : '' ?>"href="index.php?page=<?= ($page < $max_pages) ? $page+1 : $page ?>">Next</a>
-</p> 
+	</p> 
 
 	<?php
 

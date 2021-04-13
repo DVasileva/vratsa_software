@@ -14,9 +14,15 @@ $read_query = "SELECT a.`audio_file_id`, a.`song_name`, a.  `performer`, a.`date
 $result_query = mysqli_query( $connection, $read_query ); 
 
 if( mysqli_num_rows( $result_query ) > 0 ){
-
+	if (isset($_SESSION['reg_user'])) {
+		$reg_user = $_SESSION['reg_user'];
+		echo "<h2>Hello," .  $reg_user . " !</h2>";
+	}
+	else{
+		echo "<h2>Welcome back," . $user_name .  "!</h2>";
+	}
 	?>
-	<h2>Welcome back, <?= $user_name ?> !</h2>
+	
 	 <p><a href="create.php" class="btn btn-secondary btn-sm btn-dark" role="button">Add new song!</a></p>
 	  <p><a href="categories/create.php" class="btn btn-secondary btn-sm btn-dark" role="button">Add new category!</a></p>
 	  <h3 class="text-center">Songs list</h3>
@@ -30,6 +36,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 			<td>Downloads</td>
 			<td>Dowload song</td>
 			<td>Rating</td>
+			<td>Rate</td>
 			<td>Category</td>
 
 		</tr>
@@ -44,8 +51,8 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 				<td><?= $row['date_created']?></td>	
 				<td><?= $row['user_name']?></td>
 				<td><?= $row['downloads']?></td>
-				<td><a href="download.php?id=<?= $row['audio_file_id']?>"class= "btn btn-outline-success ">Dowload</td>	
-				<td><?= $row['rating']?></td>	
+				<td><a href="download.php?id=<?= $row['audio_file_id']?>"class= "btn btn-outline-success ">Dowload</td><td><?= $row['rating']?></td>
+				<td><a href="rate.php?id=<?= $row['rate']?>"class= "btn btn-outline-warning disabled">Rate</td>	
 				<td><?= $row['category_name']?></td>		
 			</tr>
 			<?php

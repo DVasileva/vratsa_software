@@ -1,5 +1,6 @@
 <?php
 include('includes/header.php');
+session_start();
 ?>
 <h1>Add new song</h1>
 <div>
@@ -48,35 +49,37 @@ include('includes/header.php');
 	</div>
 	<?php 
 	$current_date = date('Y-m-d H:i:s');
-		if( isset( $_POST['song_name'] )  ){
+	if( isset( $_POST['song_name'] )  ){
 
-			$song_name = $_POST['song_name'];
-			$performer = $_POST['performer'];
-		    $category_id = $_POST['category_id'];
+		$song_name = $_POST['song_name'];
+		$performer = $_POST['performer'];
+		$category_id = $_POST['category_id'];
 
 		if (isset($_FILES['audio_file'])) {
 			if (!empty($_FILES['audio_file'])) {
 				$file_dir = 'uploads/';
 				$upload_file = $file_dir . basename($_FILES['audio_file']['name']);
-					if ( move_uploaded_file( $_FILES['audio_file']['tmp_name'], $upload_file ) ) {
-				echo "File is valid, and was successfully uploaded.\n";
-			} else {
-				echo "Possible file upload attack!\n";
-			}
-
-
+				if ( move_uploaded_file( $_FILES['audio_file']['tmp_name'], $upload_file ) ) {
+					echo "File is valid, and was successfully uploaded.\n";
+				} else {
+					echo "Possible file upload attack!\n";
+				}
 			}
 		}
+		$upload_file = addslashes( $upload_file );
+		var_dump($song_name);
+
 		$insert_query = "INSERT INTO `audio_files`(`song_name`, `performer`, `date_created`, `category_id`,
-		 `audio_file`) VALUES (
-		'$song_name','$performer','$current_date', '$category_id', '$upload_file')";
-
-		$result = mysqli_query( $connection, $insert_query );
-
-		} 
-
-
-	
+		`audio_file`, `user_id`) VALUES 
+		('$song_name','$performer','$current_date', ".(int)$category_id.", '$upload_file', ".(int)$_SESSION['logged_user_id'].")";
+		
+		if ($connection->query($insert_query) === TRUE) {
+			$last_id = $connection->insert_id;
+			echo "New record created successfully. Last inserted ID is: " . $last_id;
+		} else {
+			echo "Error: " . $insert_query . "<br>" . $connection->error;
+		}
+	} 
 	?>
 </div>
 </div>
