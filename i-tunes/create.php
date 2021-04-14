@@ -67,7 +67,7 @@ session_start();
 			}
 		}
 		$upload_file = addslashes( $upload_file );
-		var_dump($song_name);
+		//var_dump($song_name);
 
 		$insert_query = "INSERT INTO `audio_files`(`song_name`, `performer`, `date_created`, `category_id`,
 		`audio_file`, `user_id`) VALUES 

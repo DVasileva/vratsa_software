@@ -34,7 +34,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 			<td>Created at</td>
 			<td>User</td>
 			<td>Downloads</td>
-			<td>Dowload song</td>
+			<td>Download song</td>
 			<td>Rating</td>
 			<td>Rate</td>
 			<td>Category</td>
@@ -51,8 +51,8 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 				<td><?= $row['date_created']?></td>	
 				<td><?= $row['user_name']?></td>
 				<td><?= $row['downloads']?></td>
-				<td><a href="download.php?id=<?= $row['audio_file_id']?>"class= "btn btn-outline-success ">Dowload</td><td><?= $row['rating']?></td>
-				<td><a href="rate.php?id=<?= $row['rate']?>"class= "btn btn-outline-warning disabled">Rate</td>	
+				<td><a href="download.php?id=<?= $row['audio_file_id']?>"class= "btn btn-outline-success ">Download</td><td><?= $row['rating']?></td>
+				<td><a href="rate.php?id=<?= $row['audio_file_id']?>"class= "btn btn-outline-warning ">Rate</td>	
 				<td><?= $row['category_name']?></td>		
 			</tr>
 			<?php
