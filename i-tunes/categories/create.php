@@ -12,6 +12,7 @@ include ('../includes/header.php');
 
 if( isset($_POST['category_name'])){
 	$category_name = $_POST['category_name'];
+	$category_name = addslashes( $category_name );
 
 	$insert_query = "INSERT INTO `categories`(`category_name`) VALUES ('$category_name')";
 

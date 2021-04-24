@@ -76,6 +76,7 @@ session_start();
 		if ($connection->query($insert_query) === TRUE) {
 			$last_id = $connection->insert_id;
 			echo "New record created successfully. Last inserted ID is: " . $last_id;
+			header('Location: page_songs.php');
 		} else {
 			echo "Error: " . $insert_query . "<br>" . $connection->error;
 		}

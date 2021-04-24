@@ -27,7 +27,7 @@ $offset = ($page - 1)*$result_per_page;
 
 
 <?php
-$read_query = "SELECT a.`audio_file_id`, a.`song_name`, a.  `performer`, a.`date_created`, u.`user_name`, a.`downloads`, a.`rating`, c.`category_name`  FROM `audio_files` a LEFT JOIN `users` u ON a.`user_id` = u.`user_id` LEFT JOIN `categories` c ON a. `category_id` = c.`category_id` WHERE a.`date_deleted` IS NULL ORDER BY a.`song_name` ASC LIMIT $result_per_page OFFSET $offset";
+$read_query = "SELECT a.`audio_file_id`, a.`song_name`, a.  `performer`, a.`date_created`, u.`user_name`, a.`downloads`, a.`rating`, c.`category_name`  FROM `audio_files` a LEFT JOIN `users` u ON (a.`user_id` = u.`user_id`) LEFT JOIN `categories` c ON (a. `category_id` = c.`category_id`) WHERE a.`date_deleted` IS NULL ORDER BY a.`song_name` ASC LIMIT $result_per_page OFFSET $offset";
 
 $result_query = mysqli_query( $connection, $read_query ); 
 

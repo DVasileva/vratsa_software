@@ -9,7 +9,7 @@ if (!isset($_SESSION['logged_user'])) {
 $user_name = $_SESSION['logged_user'];
 
 
-$read_query = "SELECT a.`audio_file_id`, a.`song_name`, a.  `performer`, a.`date_created`, u.`user_name`, a.`downloads`, a.`rating`, c.`category_name`  FROM `audio_files` a LEFT JOIN `users` u ON a.`user_id` = u.`user_id` LEFT JOIN `categories` c ON a. `category_id` = c.`category_id` WHERE a.`date_deleted` IS NULL";
+$read_query = "SELECT a.`audio_file_id`, a.`song_name`, a.`performer`, a.`date_created`, u.`user_name`, a.`downloads`, c.`category_name`, AVG(r.rate) as rating FROM `audio_files` a LEFT JOIN `users` u ON (a.`user_id` = u.`user_id`) LEFT JOIN `categories` c ON (a. `category_id` = c.`category_id`) LEFT JOIN ratings r ON a.audio_file_id = r.`audio_file_id` WHERE a.`date_deleted` IS NULL GROUP BY a.audio_file_id";
 
 $result_query = mysqli_query( $connection, $read_query ); 
 
