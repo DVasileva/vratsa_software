@@ -21,7 +21,6 @@ session_start();
 						<?php 
 						$category_query = "SELECT * FROM `categories` WHERE `date_deleted` IS NULL";
 						$categories =  mysqli_query( $connection, $category_query );
-
 						?>
 						<label>Category</label>
 						<select name="category_id" required>
@@ -33,7 +32,6 @@ session_start();
 							</option>
 							<?php
 						}
-
 						?>
 					</select>
 				</div>
@@ -67,11 +65,10 @@ session_start();
 			}
 		}
 		$upload_file = addslashes( $upload_file );
-		//var_dump($song_name);
 
 		$insert_query = "INSERT INTO `audio_files`(`song_name`, `performer`, `date_created`, `category_id`,
-		`audio_file`, `user_id`) VALUES 
-		('$song_name','$performer','$current_date', ".(int)$category_id.", '$upload_file', ".(int)$_SESSION['logged_user_id'].")";
+		`audio_file`, `user_id`) 
+		VALUES ('$song_name','$performer','$current_date', ".(int)$category_id.", '$upload_file', ".(int)$_SESSION['logged_user_id'].")";
 		
 		if ($connection->query($insert_query) === TRUE) {
 			$last_id = $connection->insert_id;

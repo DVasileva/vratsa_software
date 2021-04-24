@@ -23,9 +23,6 @@ $offset = ($page - 1)*$result_per_page;
 	<p class="font-weight-light">Already a member? <a href="log_in.php" class="btn btn-secondary btn-sm btn-dark" role="button">Sign in!</a></p>
 </span>
 
-
-
-
 <?php
 $read_query = "SELECT a.`audio_file_id`, a.`song_name`, a.  `performer`, a.`date_created`, u.`user_name`, a.`downloads`, a.`rating`, c.`category_name`  FROM `audio_files` a LEFT JOIN `users` u ON (a.`user_id` = u.`user_id`) LEFT JOIN `categories` c ON (a. `category_id` = c.`category_id`) WHERE a.`date_deleted` IS NULL ORDER BY a.`song_name` ASC LIMIT $result_per_page OFFSET $offset";
 
@@ -70,6 +67,7 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 		}
 		?>
 	</table>
+<!-- shorthand php tags -->
 	<p class="text-center">
 		<a class="btn btn-sm btn-dark   <?= ($page == 1) ? 'disabled' : '' ?>"href="index.php?page=<?= ($page > 1 ) ? $page-1 : $page ?>">Previous</a>
 		<?php

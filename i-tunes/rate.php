@@ -3,12 +3,9 @@ include ('includes/header.php');
 
 session_start();
 
-
 $audio_file_id = $_GET['id'];
 
 ?>
-
-
 
 <h2>How would you rate this song?</h2>
 <form action="" method="post">
@@ -32,13 +29,6 @@ if (isset($_POST['submit'])) {
 	$rate = $_POST['rating'];
 	$user_id = $_SESSION['logged_user_id'];
 
-//select * from ratings where user _id = $user_id
-
-	//if result
-	//update ;
-	//else insert 
-
-
 	$check_query = "SELECT * FROM `ratings` WHERE `user_id` =" . $user_id . " AND `audio_file_id` = " . $audio_file_id;
 
 	$check_result = mysqli_query($connection, $check_query);
@@ -50,7 +40,8 @@ if (isset($_POST['submit'])) {
 		
 	} else {
 
-		$query = "INSERT INTO `ratings`( `audio_file_id`, `user_id`, `rate`) VALUES ( $audio_file_id, $user_id, $rate)";
+		$query = "INSERT INTO `ratings`( `audio_file_id`, `user_id`, `rate`) 
+						VALUES ( $audio_file_id, $user_id, $rate)";
 		
 }
 		$result_rate = mysqli_query($connection, $query);
