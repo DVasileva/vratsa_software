@@ -69,7 +69,8 @@ if( mysqli_num_rows( $result_query ) > 0 ){
 	</table>
 <!-- shorthand php tags -->
 	<p class="text-center">
-		<a class="btn btn-sm btn-dark   <?= ($page == 1) ? 'disabled' : '' ?>"href="index.php?page=<?= ($page > 1 ) ? $page-1 : $page ?>">Previous</a>
+		<a class="btn btn-sm btn-dark   <?= ($page == 1) ? 'disabled' : '' ?>"href="index.php?page=<?= ($page > 1 ) ? 
+		$page-1 : $page ?>">Previous</a>
 		<?php
 		for ($i=1; $i <= $max_pages ; $i++) { 
 			echo "<a href='index.php?page=$i'>$i</a>";

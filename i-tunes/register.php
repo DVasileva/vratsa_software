@@ -73,18 +73,7 @@ session_start();
 				$hashed_password = password_hash($password, PASSWORD_DEFAULT );
 
 				$insert_query = "INSERT INTO `users` (`user_name`, `password`) VALUES ('$username', '$hashed_password')";
-	// $result_query = mysqli_query($connection, $insert_query);
-	// 	if($result_query){
-	// 		echo "You are now logged in!";
-	// 		$_SESSION = [];
-	// 		$_SESSION['reg_user'] = $username;
-	// 		header('Location: page_song.php');
-
-	// 	}
-
-	// 	else {
-	// 		die('Insert qurey failed! Error: '.mysqli_error($connection));
-	// 	}
+				
 				if ($connection->query($insert_query) === TRUE) {
 					$last_id = $connection->insert_id;
 					echo "You are now logged in!";
